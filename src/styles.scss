@@ -10,8 +10,10 @@
 }
 
 body {
-  --text-color: hsl(0, 0%, 52%);
+  --text-color: hsl(0, 0%, 23%);
   --light-gray-color: hsl(0, 0%, 98%);
+  --dark-blue-color: hsl(271, 45%, 28%);
+  --lighter-blue-color: hsl(270, 46%, 51%);
   --white-color: hsl(0, 0%, 100%);
 
   line-height: 1.5;
@@ -44,4 +46,26 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var(--lighter-blue-color);
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--lighter-blue-color);
+  }
 }

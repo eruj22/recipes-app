@@ -1,0 +1,37 @@
+<header *ngIf="viewData$ | async as viewData" class="header">
+  <span class="header__logo" routerLink="/">Kuhajmo skupaj</span>
+  <nav class="nav" [ngClass]="{ 'nav--open': viewData.isMobileMenuOpen }">
+    <ul class="nav__list">
+      <li class="nav__item">
+        <a
+          class="nav__link"
+          routerLink="/recipes"
+          routerLinkActive="active"
+          (click)="onMobileMenuClose()">
+          Vsi recepti
+        </a>
+      </li>
+    </ul>
+    @if (viewData.activeUser) {
+    <button class="nav__button" (click)="(logout)">Odjava</button>
+    } @else {
+    <button
+      class="nav__button"
+      routerLink="/login"
+      (click)="onMobileMenuClose()">
+      Prijava
+    </button>
+    }
+  </nav>
+
+  <button class="menu" (click)="onHamburgerClick()">
+    <img
+      class="menu__img"
+      alt=""
+      [src]="
+        viewData.isMobileMenuOpen
+          ? 'assets/icons/close.svg'
+          : 'assets/icons/hamburger.svg'
+      " />
+  </button>
+</header>
