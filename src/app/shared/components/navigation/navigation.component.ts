@@ -3,9 +3,10 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BehaviorSubject, Observable, combineLatest, map } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
+import { User } from '../../types/user.type';
 
 type ViewData = {
-  activeUser: null | any;
+  activeUser: null | User;
   isMobileMenuOpen: boolean;
 };
 
