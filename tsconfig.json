@@ -14,7 +14,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@home/*": ["src/app/modules/home/*"]
+      "@lib/*": ["src/app/lib/*"],
+      "@home/*": ["src/app/modules/home/*"],
+      "@login/*": ["src/app/modules/login/*"]
     },
     "useDefineForClassFields": false,
     "esModuleInterop": true,
