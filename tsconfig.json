@@ -16,7 +16,8 @@
     "paths": {
       "@lib/*": ["src/app/lib/*"],
       "@home/*": ["src/app/modules/home/*"],
-      "@login/*": ["src/app/modules/login/*"]
+      "@login/*": ["src/app/modules/login/*"],
+      "@register/*": ["src/app/modules/register/*"]
     },
     "useDefineForClassFields": false,
     "esModuleInterop": true,

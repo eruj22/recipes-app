@@ -1,0 +1,57 @@
+<main class="main">
+  <form [formGroup]="registerForm" class="form">
+    <div class="form__block">
+      <label for="name">Ime</label>
+      <input class="form__input" type="text" id="name" formControlName="name" />
+      @if (registerForm.get('name')?.invalid &&
+      registerForm.get('name')?.touched) { @if
+      (registerForm.get('name')?.errors?.['required']) {
+      <small class="form__error">Ime je obvezno polje</small>
+      } @if (registerForm.get('name')?.errors?.['minlength']) {
+      <small class="form__error">Ime mora biti dolgo vsaj tri znake</small>
+      } }
+    </div>
+    <div class="form__block">
+      <label for="email">Email</label>
+      <input
+        class="form__input"
+        type="email"
+        id="email"
+        formControlName="email"
+        [ngClass]="{ 'form__input--error': registerForm.get('email')?.invalid && registerForm.get('email')?.touched }" />
+      @if (registerForm.get('email')?.invalid &&
+      registerForm.get('email')?.touched) { @if
+      (registerForm.get('email')?.errors?.['required']) {
+      <small class="form__error">Email je obvezno polje</small>
+      } @if (registerForm.get('email')?.errors?.['email']) {
+      <small class="form__error">Email ni pravilno vpisan</small>
+      } }
+    </div>
+    <div class="form__block">
+      <label for="password">Geslo</label>
+      <input
+        class="form__input"
+        type="password"
+        id="password"
+        formControlName="password"
+        [ngClass]="{ 'form__input--error': registerForm.get('password')?.invalid && registerForm.get('password')?.touched }" />
+      @if (registerForm.get('password')?.invalid &&
+      registerForm.get('password')?.touched ) {
+      @if(registerForm.get('password')?.errors?.['required']) {
+      <small class="form__error">Geslo je obvezno polje</small>
+      } @if(registerForm.get('password')?.errors?.['pattern']) {
+      <small class="form__error">
+        Geslo mora imeti vsaj 8 znakov, eno veliko črko in eno številko
+      </small>
+      } }
+    </div>
+    <button class="form__button button--primary" (click)="register()">
+      Registriraj se
+    </button>
+    <div class="form__errorBlock" *ngIf="showError$ | async as error">
+      {{ error.message }}
+    </div>
+  </form>
+
+  <span>Že imate račun? <a routerLink="/login">Prijava</a></span>
+</main>

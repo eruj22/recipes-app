@@ -9,4 +9,8 @@ export const appRoutes: Route[] = [
     path: 'login',
     loadChildren: () => import('@login/login.routes').then(m => m.routes),
   },
+  {
+    path: 'register',
+    loadChildren: () => import('@register/register.routes').then(m => m.routes),
+  },
 ];
