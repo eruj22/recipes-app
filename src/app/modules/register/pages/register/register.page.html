@@ -46,12 +46,12 @@
       } }
     </div>
     <button class="form__button button--primary" (click)="register()">
-      Registriraj se
+      Registrirajte se
     </button>
     <div class="form__errorBlock" *ngIf="showError$ | async as error">
       {{ error.message }}
     </div>
   </form>
 
-  <span>Že imate račun? <a routerLink="/login">Prijava</a></span>
+  <span>Že imate račun? <a routerLink="/login">Prijavite se</a></span>
 </main>
