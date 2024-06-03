@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { LOGIN_REGEX } from 'src/app/shared/constants';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -25,6 +25,7 @@ export class RegisterPageComponent {
 
   private readonly authService = inject(AuthService);
   private readonly formBuilder = inject(FormBuilder);
+  private readonly router = inject(Router);
   private readonly showErrorSubject = new BehaviorSubject({ message: '' });
 
   constructor() {
@@ -47,6 +48,8 @@ export class RegisterPageComponent {
         this.registerForm.controls['password'].value,
         this.registerForm.controls['name'].value
       );
+      this.registerForm.reset();
+      this.router.navigate(['/']);
     } catch (err) {
       const errorMessage = (err as Error).message.includes('already exists')
         ? 'Uporabnik s tem email naslovom že obstaja. Poskusite ponovno.'
