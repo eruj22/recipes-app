@@ -25,7 +25,7 @@ export class NavigationComponent {
 
   constructor() {
     this.viewData$ = combineLatest([
-      this.authService.activeUser,
+      this.authService.getActiveUser(),
       this.isMobileMenuOpenSubject,
     ]).pipe(
       map(([user, isMobileMenuOpen]) => ({
